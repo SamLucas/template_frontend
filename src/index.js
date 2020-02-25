@@ -1,12 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { ThemeProvider } from "styled-components";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import { Typography, GlobalStyle } from "src/config/globalStyle";
+import { Light } from "src/config/tema";
+import Routers from "./router";
+
+const App = () => (
+  <ThemeProvider theme={Light}>
+    <Routers />
+    <Typography />
+    <GlobalStyle />
+  </ThemeProvider>
+);
+
+ReactDOM.render(<App />, document.getElementById("root"));
